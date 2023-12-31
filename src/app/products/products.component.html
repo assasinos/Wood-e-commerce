@@ -1,0 +1,217 @@
+<div
+    class="mx-auto w-full max-w-screen-xl p-1 py-3 lg:py-5 md:px-10 px-4 flex items-center justify-center gap-3 flex-col">
+
+
+    <!-- Products list -->
+    <section class="flex flex-col gap-7 text-center">
+
+        <div>
+            <h3 class="text-4xl font-semibold">Products</h3>
+            <p class="text-sm">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+
+        <div class="grid gap-5 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
+            @for (item of products; track $index) {
+            <div class="flex flex-col text-center gap-3">
+
+                <img class="w-full" src="{{item.image}}" alt="product image">
+
+                <div>
+                    <h3 class="text-xl">{{item.name}}</h3>
+                    <p class="text-sm font-thin">Variant</p>
+                </div>
+
+                <p class="text-l">${{item.price}}</p>
+
+                <a href="#"
+                    class=" w-full text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium  text-sm py-2.5 text-center me-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">
+                    Add to cart
+                </a>
+            </div>
+            }
+        </div>
+
+        @if (products.length > 6) {
+            <!-- TODO: Implement Loading More -->
+            <div class="mt-4">
+                <a href="#"
+                class=" px-4 text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium  text-sm py-2.5 text-center me-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">
+                Show more
+            </a>
+            </div>
+        }
+
+        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+    </section>
+
+
+
+    <!-- FAQ -->
+    <section class="flex flex-col gap-4 w-full mb-4">
+        <h3 class="text-4xl font-semibold text-center">FAQs</h3>
+
+        <div class="w-full" id="faq" data-accordion="collapse"
+            data-active-classes="bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
+            data-inactive-classes="text-gray-500 dark:text-gray-400">
+            <h2 id="faq-heading-1">
+                <button type="button"
+                    class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 gap-3"
+                    data-accordion-target="#faq-body-1" aria-expanded="false" aria-controls="faq-body-1">
+                    <span>What kind of wood do you use for your products?</span>
+                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 5 5 1 1 5" />
+                    </svg>
+                </button>
+            </h2>
+            <div id="faq-body-1" class="hidden" aria-labelledby="faq-heading-1">
+                <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                    <p class="mb-2 text-gray-500 dark:text-gray-400">We primarily use high-quality, sustainably sourced
+                        wood materials, such as oak, maple, and walnut, to create our handcrafted items. Each product
+                        description includes details about the specific wood used.</p>
+                </div>
+            </div>
+
+            <h2 id="faq-heading-2">
+                <button type="button"
+                    class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 gap-3"
+                    data-accordion-target="#faq-body-2" aria-expanded="false" aria-controls="faq-body-2">
+                    <span>Are your products environmentally friendly?</span>
+                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 5 5 1 1 5" />
+                    </svg>
+                </button>
+            </h2>
+            <div id="faq-body-2" class="hidden" aria-labelledby="faq-heading-2">
+                <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                    <p class="mb-2 text-gray-500 dark:text-gray-400">Yes, we are committed to sustainability. We source our wood from responsibly managed forests and strive to minimize waste throughout the production process. Our packaging is also eco-friendly.</p>
+                </div>
+            </div>
+
+            <h2 id="faq-heading-3">
+                <button type="button"
+                    class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 gap-3"
+                    data-accordion-target="#faq-body-3" aria-expanded="false" aria-controls="faq-body-3">
+                    <span>Can I request a custom design or personalized item?</span>
+                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 5 5 1 1 5" />
+                    </svg>
+                </button>
+            </h2>
+            <div id="faq-body-3" class="hidden" aria-labelledby="faq-heading-3">
+                <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                    <p class="mb-2 text-gray-500 dark:text-gray-400">Absolutely! We love working on custom orders. Contact our customer support team, and we'll be happy to discuss your ideas and create a unique, personalized piece just for you.
+
+                    </p>
+                </div>
+            </div>
+
+            <h2 id="faq-heading-4">
+                <button type="button"
+                    class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 gap-3"
+                    data-accordion-target="#faq-body-4" aria-expanded="false" aria-controls="faq-body-4">
+                    <span>How do I care for and maintain my woodcrafted product?</span>
+                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 5 5 1 1 5" />
+                    </svg>
+                </button>
+            </h2>
+            <div id="faq-body-4" class="hidden" aria-labelledby="faq-heading-4">
+                <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                    <p class="mb-2 text-gray-500 dark:text-gray-400">Proper care ensures the longevity of your wooden items. We recommend avoiding direct sunlight, extreme temperatures, and excessive moisture. Use a soft, dry cloth to clean, and avoid harsh chemicals. Specific care instructions are provided with each product.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Reviews -->
+
+    <section>
+        <h3 class="text-4xl font-semibold text-center"> Customer Testimonials</h3>
+        <app-carousel [OneSlide]="true">
+            <div class="flex flex-shrink-0 relative w-full ">
+                <div class="flex flex-col gap-2 w-full justify-center text-center relative">
+                    <div class="flex flex-row gap-2 w-full justify-center ">
+                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                        <path
+                            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                    </svg>
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                        <path
+                            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                    </svg>
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                        <path
+                            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                    </svg>
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                        <path
+                            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                    </svg>
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                        <path
+                            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                    </svg>
+                    </div>
+                    <p class="font-bold">I purchased a custom wood photo frame, and it's stunning. The craftsmanship is top-notch, and the personalized design captured my memories perfectly. Fast delivery, securely packaged. Highly recommend!</p>
+                    <div class="flex flex-row gap-5 w-full justify-center">
+                        <p>
+                            Emily Thompson
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-shrink-0 relative w-full ">
+                <div class="flex flex-col gap-2 w-full justify-center text-center relative">
+                    <div class="flex flex-row gap-2 w-full justify-center ">
+                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                        <path
+                            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                    </svg>
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                        <path
+                            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                    </svg>
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                        <path
+                            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                    </svg>
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                        <path
+                            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                    </svg>
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 21 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m11.479 1.712 2.367 4.8a.532.532 0 0 0 .4.292l5.294.769a.534.534 0 0 1 .3.91l-3.83 3.735a.534.534 0 0 0-.154.473l.9 5.272a.535.535 0 0 1-.775.563l-4.734-2.49a.536.536 0 0 0-.5 0l-4.73 2.487a.534.534 0 0 1-.775-.563l.9-5.272a.534.534 0 0 0-.154-.473L2.158 8.48a.534.534 0 0 1 .3-.911l5.294-.77a.532.532 0 0 0 .4-.292l2.367-4.8a.534.534 0 0 1 .96.004Z"/>
+                      </svg>
+                    </div>
+                    <p class="font-bold">The wood-graved items from this company are truly exceptional. The attention to detail and craftsmanship is unmatched.</p>
+                    <div class="flex flex-row gap-5 w-full justify-center">
+                        <p>
+                            David Rodriguez
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </app-carousel>
+    </section>
+
+</div>

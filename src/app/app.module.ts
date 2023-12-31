@@ -9,6 +9,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { ProductsComponent } from './products/products.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { ContactComponent } from './contact/contact.component';
     FooterComponent,
     AboutComponent,
     ContactComponent,
+    ProductsComponent,
   ],
   imports: [
     BrowserModule,

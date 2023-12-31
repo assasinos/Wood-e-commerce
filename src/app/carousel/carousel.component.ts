@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-carousel',
@@ -7,7 +7,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 })
 export class CarouselComponent implements AfterViewInit {
 
-
+@Input() OneSlide: boolean = false;
 
   ngAfterViewInit(): void {
 
@@ -35,7 +35,7 @@ export class CarouselComponent implements AfterViewInit {
 
     const GetMaxScroll = () => {
       //Check if screen is small 
-      if (window.innerWidth < 768) {
+      if (window.innerWidth < 768 || this.OneSlide) {
         return this.sliderElement.nativeElement.scrollWidth;
       }
       else if(window.innerWidth < 1024) {
