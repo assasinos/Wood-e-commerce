@@ -1,6 +1,8 @@
 <div
     class="mx-auto w-full max-w-screen-xl p-1 py-5 lg:py-8 md:px-10 px-4 flex items-center justify-center gap-3 flex-col">
 
+
+    @if (this.product) {
     <!-- Shop -> Category -> Item -->
     <section class="flex flex-row gap-3 text-sm items-center text-center w-full">
 
@@ -33,11 +35,9 @@
             <p class="font-semibold text-xl">${{product.price}}</p>
 
             <!-- Reviews -->
-            <app-item-rating [StarRating]="3.5"></app-item-rating>
+            <app-item-rating [StarRating]="product.starRating"></app-item-rating>
 
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod a voluptatum hic. Harum ratione rerum
-                fugiat sapiente molestias autem velit sequi quisquam, saepe voluptatibus, adipisci quidem nobis
-                asperiores expedita unde!</p>
+            <p>{{product.description}}</p>
 
                 <form action="#" class="flex flex-col gap-5 mt-3">
                     <!-- Variant -->
@@ -58,7 +58,7 @@
                         <label for="counter-input" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Choose
                             quantity:</label>
                         <div class="relative flex items-center">
-                            <button type="button" id="decrement-button" data-input-counter-decrement="counter-input"
+                            <button #decrementbutton type="button" id="decrement-button"
                                 class="flex-shrink-0 bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
                                 <svg class="w-2.5 h-2.5 text-gray-900 dark:text-white" aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
@@ -66,10 +66,10 @@
                                         d="M1 1h16" />
                                 </svg>
                             </button>
-                            <input type="text" id="counter-input" data-input-counter
+                            <input type="text" id="counter-input" #counterInput
                                 class="flex-shrink-0 text-gray-900 dark:text-white border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center"
-                                placeholder="" value="1" required>
-                            <button type="button" id="increment-button" data-input-counter-increment="counter-input"
+                                placeholder="" value="1" required min="1">
+                            <button #incrementbutton type="button" id="increment-button" 
                                 class="flex-shrink-0 bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
                                 <svg class="w-2.5 h-2.5 text-gray-900 dark:text-white" aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
@@ -121,7 +121,7 @@
                             <span class="font-semibold">Craftsmanship:</span> {{product.details.Craftsmanship}}
                         </li>
                         <li>
-                            <span class="font-semibold">Care Instructions:</span> {{product.details.Care_Instructions}}
+                            <span class="font-semibold">Care Instructions:</span> {{product.details.CareInstructions}}
 
                         </li>
                     </ul>
@@ -191,5 +191,8 @@
         </div>
 
     </section>
+    }
+
+
 
 </div>
