@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Product } from '../../types/product';
 import { initFlowbite } from 'flowbite';
 
 @Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrl: './products.component.css',
+  selector: 'app-product-details',
+  templateUrl: './product-details.component.html',
+  styleUrl: './product-details.component.css',
 })
-export class ProductsComponent implements OnInit {
-  ngOnInit(): void {
-    initFlowbite();
-  }
+export class ProductDetailsComponent implements OnInit {
+  id: string | null = null;
+
+  constructor(private route: ActivatedRoute) {}
+
   products: Array<Product> = [
     {
       details: {
@@ -86,5 +88,12 @@ export class ProductsComponent implements OnInit {
     },
   ];
 
+  product!: Product;
 
+  ngOnInit(): void {
+    this.id = this.route.snapshot.paramMap.get('id');
+    if (this.id === null) return;
+    this.product = this.products.find((product) => product.id === this.id)!;
+    initFlowbite();
+  }
 }

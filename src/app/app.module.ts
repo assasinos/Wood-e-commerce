@@ -10,6 +10,8 @@ import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProductsComponent } from './products/products.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ItemRatingComponent } from './item-rating/item-rating.component';
 
 
 @NgModule({
@@ -22,6 +24,8 @@ import { ProductsComponent } from './products/products.component';
     AboutComponent,
     ContactComponent,
     ProductsComponent,
+    ProductDetailsComponent,
+    ItemRatingComponent,
   ],
   imports: [
     BrowserModule,

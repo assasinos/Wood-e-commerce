@@ -14,7 +14,10 @@
             @for (item of products; track $index) {
             <div class="flex flex-col text-center gap-3">
 
-                <img class="w-full" src="{{item.image}}" alt="product image">
+                
+                <a [routerLink]="['/product-details', item.id]">
+                    <img class="w-full" src="{{item.image}}" alt="product image">
+                </a>
 
                 <div>
                     <h3 class="text-xl">{{item.name}}</h3>
@@ -32,7 +35,7 @@
         </div>
 
         @if (products.length > 6) {
-            <!-- TODO: Implement Loading More -->
+            <!-- TODO: Implement Loading More || Change to dowload from backend -->
             <div class="mt-4">
                 <a href="#"
                 class=" px-4 text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium  text-sm py-2.5 text-center me-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">
